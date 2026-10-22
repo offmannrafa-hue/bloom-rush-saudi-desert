@@ -517,7 +517,7 @@ window.BLOOM_SUPABASE={url:'https://cvgkvqftmuasbbyufvfz.supabase.co',anonKey:'s
     $('liveStatus').textContent=t('roundEnd',{score:game.score,blooms:game.blooms});
     if(result?.first)confetti(95);else confetti(45);applyLanguage();
   }
-  function openBoard(){clearControls();if(['playing','countdown','tutorial'].includes(state))pause();state='board';backdrop='title';screen();renderBoard();$('boardPlay').focus({preventScroll:true});}
+  function openBoard(){clearControls();if(['playing','countdown','tutorial'].includes(state))pause();state='board';backdrop='title';screen();renderBoard();refreshOnline();$('boardPlay').focus({preventScroll:true});}
   function renderBoard(){
     const records=repo.board(),list=$('rankingList');list.replaceChildren();
     records.slice(0,10).forEach((r,index)=>{const li=document.createElement('li');li.className='rank-row'+(r.matchId===repo.latestId?' latest':'');
